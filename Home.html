@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royal Restaurant Landing Page</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="css/home.css"/>
+  </head>
+  
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#home" id="navbar-brand">
+        <img src="assets/17c9f36e3c996b00d2d0a2257c0b90374f2d4384.png" alt="Royal Restaurant">
+            <label>Royal Restaurant</label>   
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Book a Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Team Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-login" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-signup" href="#">Signup</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section (Home) -->
+    <section id="home" class="hero-section">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Enjoy Our Delicious Meals</h1>
+        <p>
+          Indulge in a culinary experience like no other. Our chefs craft each
+          dish with passion and precision,<br />
+          ensuring that every bite is a celebration of flavor.
+        </p>
+        <a href="#book-table" class="btn btn-book-table">Book A Table</a>
+        <a href="#menu" class="btn btn-order">Order</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="welcome-section">
+      <div class="image-container"></div>
+      <div class="text-container" id="text-container">
+        <h2>Welcome to Restaurant</h2>
+        <p>Welcome to Royal Paradise Hotel, where culinary artistry meets heartfelt hospitality.</p>
+        <p>At Royal Paradise Hotel, we believe that food is more than just nourishment—it's an experience that brings people together, creates memories, and sparks joy. Our journey began with a simple idea: to create a space where people can enjoy delicious, thoughtfully prepared meals in a warm and welcoming atmosphere.</p>
+        <p>Founded by Royal Samarasignhe in 2001, our restaurant has grown from a small local eatery into a beloved destination for food lovers near and far. With a passion for culinary excellence and a dedication to quality, Royal Samarasignhe envisioned a place where every meal would be a celebration of flavor and every guest would feel like family.</p> 
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+      <h2>Our Menus</h2>
+
+      <div class="browse-recipes">
+        <ul>
+          <li>
+            <img
+              src="assets/0bc4884559f49ce091f8a6b2f9d67e7a5e0c80d6.png"
+              alt="Meat"
+            />
+            FastFood
+          </li>
+          <li>
+            <img
+              src="assets/dbf915a3d1dfe42b54411f9d5a02b2b96f5e4709.png"
+              alt="Seafood"
+            />
+            Seafood
+          </li>
+          <li>
+            <img
+              src="assets/60afb8c2c8a3f4d585ab3d0063deec4e71ea7e5c.png"
+              alt="Vegetarian"
+            />
+            Vegetarian
+          </li>
+        </ul>
+      </div>
+
+      <div class="popular-recipes">
+        <div class="recipe-cards" id="recipe-cards">
+          <div class="recipe-card">
+                    <img src="assets/61fc67dfa7f925fcd9ac28d038ffe41d567f4258.png" alt="Katta Sabol">
+                    <div class="recipe-card-content">
+                        <h4>Katta Sabol</h4>
+                        <p>Delicious combination of spices with fresh vegetables.</p>
+                        <div>
+                            <span class="author">By Kevin Rieger</span>
+                            <span class="comments">5 Comments</span>
+                        </div>
+                        <div class="rating">★★★★★</div>
+                        <div class="price">24$</div>
+                        <div class="btn-group">
+                            <button class="btn">Add Card</button>
+                            <button class="btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <img src="assets/ed94d351046ec0167f3702b0a4fe24ca9c01b140.png" alt="Chees Pasta">
+                    <div class="recipe-card-content">
+                        <h4>Chees Pasta</h4>
+                        <p>Fresh pasta with a blend of vegetables and cheese.</p>
+                        <div>
+                            <span class="author">By Kevin Rieger</span>
+                            <span class="comments">4 Comments</span>
+                        </div>
+                        <div class="rating">★★★★★</div>
+                        <div class="price">24$</div>
+                        <div class="btn-group">
+                            <button class="btn">Add Card</button>
+                            <button class="btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <img src="assets/1a4fd975d28bd7dc6cb4af7a5fe88f047623f502.png" alt="Vegetable Sup">
+                    <div class="recipe-card-content">
+                        <h4>Vegetable Sup</h4>
+                        <p>Warm soup made with a variety of fresh vegetables.</p>
+                        <div>
+                            <span class="author">By Kevin Rieger</span>
+                            <span class="comments">6 Comments</span>
+                        </div>
+                        <div class="rating">★★★★★</div>
+                        <div class="price">24$</div>
+                        <div class="btn-group">
+                            <button class="btn">Add Card</button>
+                            <button class="btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+  </body>
+</html>
