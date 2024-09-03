@@ -323,3 +323,70 @@ section {
     transform: translateY(-10px);
 }
 
+
+/* Services Section Styles */
+.services-section {
+    background-color: #fdfdfd;
+}
+
+.services-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.service-card {
+    background-color: rgb(223, 212, 212);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    width: 22%;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background-color: #ffc107;
+}
+
+.service-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    color: #343a40;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 992px) {
+    .service-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        width: 100%;
+    }
+}
+
+
+
+
