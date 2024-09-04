@@ -43,10 +43,10 @@
             <a class="nav-link" href="#services">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Book a Table</a>
+            <a class="nav-link" href="#book-table">Book a Table</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Team Members</a>
+            <a class="nav-link" href="#team">Team Members</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Gallery</a>
@@ -205,6 +205,89 @@
               </div>
         </div>
       </section>
+
+       <!-- This is Book A Table Section -->
+    <section id="book-table" class="book-table-section">
+        <div class="image-container"></div>
+        <div class="form-container">
+          <h2>Book A Table Online</h2>
+          <form>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Name"
+                id="booking-user"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your Email"
+                id="booking-email"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="datetime-local"
+                class="form-control"
+                placeholder="Date & Time"
+                id="booking-dateTime"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="number-of-person"
+                type="number"
+                placeholder="Number of Persons"
+                id="booking-no-of-person"
+                itemid="booking-no-of-person"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                placeholder="Special Request"
+                id="booking-special-request"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn-book" id="tableBookButton">
+                Book Now
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+       <!-- Team Members Section -->
+    <section id="team" class="members-section">
+        <h2>Our Members</h2>
+        <div class="members-container" id="members-container">
+          <div class="member-card">
+                  <img src="assets/cae6d0bb56055858c654134a29674d6e02e89263.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Manager</p>
+              </div>
+              <div class="member-card">
+                  <img src="assets/62dc02b76f188aa52659d1ee60d0bfdba1184270.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Chef</p>
+              </div>
+              <div class="member-card">
+                  <img src="assets/185795f89d12cded6d035c3ac477f67e81ded598.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Staff</p>
+              </div>
+              <div class="member-card">
+                  <img src="assets/185795f89d12cded6d035c3ac477f67e81ded598.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Chef</p>
+              </div>
+        </div>
+      </section>
+  
 
   </body>
 </html>
