@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
       <link rel="stylesheet" href="css/home.css"/>
+      <script defer src="/js/home.js"></script>
   </head>
   
   <body>
@@ -94,89 +95,115 @@
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-      <h2>Our Menus</h2>
+ <!-- Menu Section -->
+ <section id="menu" class="menu-section">
+  <h2>Our Menus</h2>
 
-      <div class="browse-recipes">
-        <ul>
-          <li>
-            <img
-              src="assets/0bc4884559f49ce091f8a6b2f9d67e7a5e0c80d6.png"
-              alt="Meat"
-            />
-            FastFood
-          </li>
-          <li>
-            <img
-              src="assets/dbf915a3d1dfe42b54411f9d5a02b2b96f5e4709.png"
-              alt="Seafood"
-            />
-            Seafood
-          </li>
-          <li>
-            <img
-              src="assets/60afb8c2c8a3f4d585ab3d0063deec4e71ea7e5c.png"
-              alt="Vegetarian"
-            />
-            Vegetarian
-          </li>
-        </ul>
+  <div class="browse-recipes">
+    <ul>
+      <li>
+        <img src="assets/0bc4884559f49ce091f8a6b2f9d67e7a5e0c80d6.png" alt="Meat" />
+        FastFood
+      </li>
+      <li>
+        <img src="assets/dbf915a3d1dfe42b54411f9d5a02b2b96f5e4709.png" alt="Seafood" />
+        Seafood
+      </li>
+      <li>
+        <img src="assets/60afb8c2c8a3f4d585ab3d0063deec4e71ea7e5c.png" alt="Vegetarian" />
+        Vegetarian
+      </li>
+    </ul>
+  </div>
+
+  <div class="popular-recipes">
+    <div class="recipe-cards" id="recipe-cards">
+      <div class="recipe-card" data-name="Katta Sabol" data-price="24">
+        <img src="assets/61fc67dfa7f925fcd9ac28d038ffe41d567f4258.png" alt="Katta Sabol">
+        <div class="recipe-card-content">
+          <h4>Katta Sabol</h4>
+          <p>Delicious combination of spices with fresh vegetables.</p>
+          <div>
+            <span class="author">By Kevin Rieger</span>
+            <span class="comments">5 Comments</span>
+          </div>
+          <div class="rating">★★★★★</div>
+          <div class="price">24$</div>
+          <div class="btn-group">
+            <button class="btn add-to-cart">Add to Cart</button>
+            <button class="btn">Order Now</button>
+          </div>
+        </div>
       </div>
 
-      <div class="popular-recipes">
-        <div class="recipe-cards" id="recipe-cards">
-          <div class="recipe-card">
-                    <img src="assets/61fc67dfa7f925fcd9ac28d038ffe41d567f4258.png" alt="Katta Sabol">
-                    <div class="recipe-card-content">
-                        <h4>Katta Sabol</h4>
-                        <p>Delicious combination of spices with fresh vegetables.</p>
-                        <div>
-                            <span class="author">By Kevin Rieger</span>
-                            <span class="comments">5 Comments</span>
-                        </div>
-                        <div class="rating">★★★★★</div>
-                        <div class="price">24$</div>
-                        <div class="btn-group">
-                            <button class="btn">Add Card</button>
-                            <button class="btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <img src="assets/ed94d351046ec0167f3702b0a4fe24ca9c01b140.png" alt="Chees Pasta">
-                    <div class="recipe-card-content">
-                        <h4>Chees Pasta</h4>
-                        <p>Fresh pasta with a blend of vegetables and cheese.</p>
-                        <div>
-                            <span class="author">By Kevin Rieger</span>
-                            <span class="comments">4 Comments</span>
-                        </div>
-                        <div class="rating">★★★★★</div>
-                        <div class="price">24$</div>
-                        <div class="btn-group">
-                            <button class="btn">Add Card</button>
-                            <button class="btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <img src="assets/1a4fd975d28bd7dc6cb4af7a5fe88f047623f502.png" alt="Vegetable Sup">
-                    <div class="recipe-card-content">
-                        <h4>Vegetable Sup</h4>
-                        <p>Warm soup made with a variety of fresh vegetables.</p>
-                        <div>
-                            <span class="author">By Kevin Rieger</span>
-                            <span class="comments">6 Comments</span>
-                        </div>
-                        <div class="rating">★★★★★</div>
-                        <div class="price">24$</div>
-                        <div class="btn-group">
-                            <button class="btn">Add Card</button>
-                            <button class="btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-    </section>
+      <div class="recipe-card" data-name="Chees Pasta" data-price="24">
+        <img src="assets/ed94d351046ec0167f3702b0a4fe24ca9c01b140.png" alt="Chees Pasta">
+        <div class="recipe-card-content">
+          <h4>Chees Pasta</h4>
+          <p>Fresh pasta with a blend of vegetables and cheese.</p>
+          <div>
+            <span class="author">By Kevin Rieger</span>
+            <span class="comments">4 Comments</span>
+          </div>
+          <div class="rating">★★★★★</div>
+          <div class="price">24$</div>
+          <div class="btn-group">
+            <button class="btn add-to-cart">Add to Cart</button>
+            <button class="btn">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card" data-name="Vegetable Sup" data-price="24">
+        <img src="assets/1a4fd975d28bd7dc6cb4af7a5fe88f047623f502.png" alt="Vegetable Sup">
+        <div class="recipe-card-content">
+          <h4>Vegetable Sup</h4>
+          <p>Warm soup made with a variety of fresh vegetables.</p>
+          <div>
+            <span class="author">By Kevin Rieger</span>
+            <span class="comments">6 Comments</span>
+          </div>
+          <div class="rating">★★★★★</div>
+          <div class="price">24$</div>
+          <div class="btn-group">
+            <button class="btn add-to-cart">Add to Cart</button>
+            <button class="btn">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="cart-items" class="list-group mb-3"></ul>
+        <div class="cart-total">
+          <strong>Total:</strong> <span id="cart-total-price">0</span>$
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+
 
 
      <!-- This is Services Section -->
