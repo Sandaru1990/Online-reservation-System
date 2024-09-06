@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <script defer src="js/signup.js"></script>
+</head>
+<body>
+    
+    <div class="signup-container">
+        <div class="signup-image"></div>
+        <div class="signup-form">
+            <h2>Create Your Account</h2>
+            <div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="Your name" required pattern="[A-Za-z\s]+" title="Please enter a valid name." id="name">
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" name="image" placeholder="Your Image" required accept="image/*" id="image">
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-control" name="phone" placeholder="Your phone number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number." id="phone">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="Your email address" required id="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Your password" required minlength="6" id="password">
+                </div>
+                <div class="show-password-container">
+                    <input type="checkbox" onclick="togglePassword()"> Show Password
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="address" placeholder="Your address" required id="address">
+                </div>
+                <button class="btn" id="signUpBuuton">Sign Up</button>
+            </div>
+            <p>Already have an account? <a href="login.html" id="login-link">Login here</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
