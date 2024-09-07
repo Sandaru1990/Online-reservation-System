@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/signup.css">
     <script defer src="js/signup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     
@@ -14,7 +15,7 @@
         <div class="signup-image"></div>
         <div class="signup-form">
             <h2>Create Your Account</h2>
-            <div>
+            <form id="signupForm">
                 <div class="form-group">
                     <input type="text" class="form-control" name="name" placeholder="Your name" required pattern="[A-Za-z\s]+" title="Please enter a valid name." id="name">
                 </div>
@@ -37,7 +38,7 @@
                     <input type="text" class="form-control" name="address" placeholder="Your address" required id="address">
                 </div>
                 <button class="btn" id="signUpBuuton">Sign Up</button>
-            </div>
+            </form>
             <p>Already have an account? <a href="login.html" id="login-link">Login here</a></p>
         </div>
     </div>
