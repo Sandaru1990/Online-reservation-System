@@ -7,8 +7,10 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <link rel="stylesheet" href="css/home.css"/>
       <script defer src="/js/home.js"></script>
+
   </head>
   
   <body>
@@ -245,7 +247,9 @@
                 class="form-control"
                 placeholder="Your Name"
                 id="booking-user"
+                required
               />
+              <span class="error-msg" id="name-error"></span>
             </div>
             <div class="form-group">
               <input
@@ -253,7 +257,9 @@
                 class="form-control"
                 placeholder="Your Email"
                 id="booking-email"
+                required
               />
+              <span class="error-msg" id="email-error"></span>
             </div>
             <div class="form-group">
               <input
@@ -261,7 +267,9 @@
                 class="form-control"
                 placeholder="Date & Time"
                 id="booking-dateTime"
+                required
               />
+              <span class="error-msg" id="datetime-error"></span>
             </div>
             <div class="form-group">
               <input
@@ -270,14 +278,18 @@
                 placeholder="Number of Persons"
                 id="booking-no-of-person"
                 itemid="booking-no-of-person"
+                required
               />
+              <span class="error-msg" id="person-error"></span>
             </div>
             <div class="form-group">
               <textarea
                 class="form-control"
                 placeholder="Special Request"
                 id="booking-special-request"
+                required
               ></textarea>
+              <span class="error-msg" id="request-error"></span>
             </div>
             <div class="form-group">
               <button type="submit" class="btn-book" id="tableBookButton">
