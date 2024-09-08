@@ -29,7 +29,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 }
 
   
-  
+//  table booking js  
 document.getElementById("tableBookButton").addEventListener("click", (event) => {
   event.preventDefault(); 
 
@@ -148,3 +148,61 @@ document.getElementById("booking-special-request").addEventListener("input", fun
     document.getElementById("request-error").innerText = "";
   }
 });
+
+
+
+document.getElementById("sendFeednackButton").addEventListener("click", () => {
+  fetch("http://localhost:8080/api/set-user-feedback", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userName: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        alert("success");
+        location.reload();
+      } else {
+        alert("unsuccess");
+      }
+    })
+    .catch(() => {
+      alert("unsuccess");
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("http://localhost:8080/api/view-all-user-feedback")
+    .then((response) => response.json())
+    .then((data) => {
+      data.map((e) => {
+        let testimonialCard = document.createElement("div");
+        testimonialCard.className = "testimonial-card";
+
+        let name = document.createElement("h4");
+        name.textContent = e.userName;
+
+        let email = document.createElement("p");
+        email.textContent = e.email;
+
+        let message = document.createElement("p");
+        message.textContent = e.message;
+
+        testimonialCard.appendChild(name);
+        testimonialCard.appendChild(email);
+        testimonialCard.appendChild(message);
+
+        document.getElementById("testimonialss").appendChild(testimonialCard);
+      });
+    });
+
+});
+
