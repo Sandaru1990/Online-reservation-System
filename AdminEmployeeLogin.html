@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/login.css" />
+    <script defer src="js/adminlogin.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-image"></div>
+      <div class="login-form">
+        <h2>Login to Your Account</h2>
+        <div>
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              placeholder="Your email address"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              placeholder="Your password"
+              required
+              minlength="6"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input type="checkbox" onclick="togglePassword()" /> Show Password
+          </div>
+          <button class="btn" id="btnLogin">Login</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
