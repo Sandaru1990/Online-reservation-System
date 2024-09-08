@@ -264,6 +264,107 @@
       </div>
     </div>
 
+
+       <!-- Modal for View Booking Details -->
+       <div
+       class="modal fade"
+       id="viewBookingModal"
+       tabindex="-1"
+       aria-labelledby="viewBookingModalLabel"
+       aria-hidden="true"
+     >
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="viewBookingModalLabel">
+               View Booking Details
+             </h5>
+             <button
+               type="button"
+               class="btn-close"
+               data-bs-dismiss="modal"
+               aria-label="Close"
+             ></button>
+           </div>
+           <div class="modal-body">
+             <form id="viewBookingForm">
+               <div class="mb-3">
+                 <label for="viewCustomerName" class="form-label"
+                   >Customer Name</label
+                 >
+                 <input
+                   type="text"
+                   class="form-control"
+                   id="viewCustomerName"
+                   readonly
+                 />
+               </div>
+               <div class="mb-3">
+                 <label for="viewEmail" class="form-label">Email</label>
+                 <input
+                   type="email"
+                   class="form-control"
+                   id="viewEmail"
+                   readonly
+                 />
+               </div>
+               <div class="mb-3">
+                 <label for="viewDateTime" class="form-label"
+                   >Date and Time</label
+                 >
+                 <input
+                   type="datetime-local"
+                   class="form-control"
+                   id="viewDateTime"
+                   readonly
+                 />
+               </div>
+               <div class="mb-3">
+                 <label for="viewSpecialRequest" class="form-label"
+                   >Special Request</label
+                 >
+                 <input
+                   type="text"
+                   class="form-control"
+                   id="viewSpecialRequest"
+                   readonly
+                 />
+               </div>
+               <div class="mb-3">
+                 <label for="viewGuests" class="form-label"
+                   >Number of Guests</label
+                 >
+                 <input
+                   type="number"
+                   class="form-control"
+                   id="viewGuests"
+                   readonly
+                 />
+               </div>
+               <div class="mb-3">
+                 <label for="viewStatus" class="form-label">Status</label>
+                 <input
+                   type="text"
+                   class="form-control"
+                   id="viewStatus"
+                   readonly
+                 />
+               </div>
+             </form>
+           </div>
+           <div class="modal-footer">
+             <button
+               type="button"
+               class="btn btn-secondary"
+               data-bs-dismiss="modal"
+             >
+               Close
+             </button>
+           </div>
+         </div>
+       </div>
+     </div>
+ 
    
 
     <!-- Footer -->
