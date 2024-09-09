@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royal Restaurant - Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <script defer src="/js/index.js"></script> 
+    
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1e1f20;
+        color: #050505;
+      }
+
+      .sidebar {
+        width: 210px;
+        background-color: #343a40;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        color: white;
+      }
+
+      .sidebar-header h4 {
+        margin-bottom: 20px;
+      }
+
+      .sidebar .nav-link {
+        color: white;
+        padding: 10px 15px;
+        display: block;
+      }
+
+      .sidebar .nav-link.active {
+        background-color: #495057;
+        border-radius: 5px;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #444;
+        border-radius: 5px;
+      }
+      .content {
+        margin-top: 5px;
+        margin-left: 210px;
+        padding: 10px;
+      }
+
+      .content header {
+        width: 50px;
+      }
+
+      .sidebar ul.nav.flex-column li.nav-item {
+        margin-bottom: 2px; /* Adds space between each nav item */
+        font-size: 15px;
+      }
+
+      .navbar-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .header {
+        background-color: #2e6779;
+        padding: px;
+        color: white;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+      }
+      .navbar-right img {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-left: 10px;
+      }
+
+      .table-container {
+        background-color: #fff;
+        padding: 20px; /* Reduced padding */
+        border-radius: 5px;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .table-container .table th,
+      .table-container .table td {
+        vertical-align: middle;
+        padding: 5px; /* Reduced padding */
+        font-size: 14px; /* Reduced font size */
+      }
+
+      .table-container .avatar {
+        border-radius: 50%;
+        width: 30px; /* Reduced avatar size */
+        height: 30px;
+      }
+
+      .pagination {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .pagination-controls {
+        display: flex;
+        gap: 5px;
+      }
+
+      .modal-dialog {
+        max-width: 50%; /* Adjust the percentage as needed */
+      }
+
+      .page-number {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin-left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+   
+    <script>
+        console.log(sessionStorage.getItem("uid"));
+        sessionStorage.getItem("uid") != null
+          ? (window.location.href = "#")
+          : (window.location.href = "../../AdminEmployeeLogin.html");
+  
+        function logout() {
+          sessionStorage.removeItem("uid");
+          sessionStorage.clear();
+          window.location.href = "../../AdminEmployeeLogin.html";
+          //alert("logout");
+        }
+      </script>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h4>Royal Restaurant</h4>
+      <br />
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="../DashBoard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../components/BookATable.html"
+            >Book A Table List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../components/Order.html">Order List</a>
+        </li>
+        <br />
+      </ul>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="../components/MenuDetails.html"
+            >Product List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../components/Staffdetails.html"
+            >Staff List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">User List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../components/Setting.html">Settings</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar">
+      <h2></h2>
+      <br />
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <div class="navbar-right">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://via.placeholder.com/40"
+                  alt="Profile Picture"
+                  id="profi"
+                />
+                Admin
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="/Admin panel/admin/components/UpdateProfile.html">Update Profile</a></li>
+                <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="header">
+        <h3>List of User Details</h3>
+      </div>
+
+      <div class="table-container mt-4">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>User Avatar</th>
+              <th>Name</th>
+              <th>Contact Number</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Role Type</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="userData">
+       
+
+          </tbody>
+        </table>
+        <div class="pagination">
+          <span>Showing 1 to 1 of 1 entry</span>
+          <div class="pagination-controls">
+            <button class="btn btn-secondary">Previous</button>
+            <span class="page-number">1</span>
+            <button class="btn btn-secondary">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Update User Details -->
+    <div
+      class="modal fade"
+      id="updateUserModal"
+      tabindex="-1"
+      aria-labelledby="updateUserModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateUserModalLabel">
+              Update User Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="updateUserForm">
+              <div class="mb-3">
+                <label for="updateUserName" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="updateUserName"
+                  placeholder="Enter name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="updateContactNumber" class="form-label"
+                  >Contact Number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="updateContactNumber"
+                  placeholder="Enter contact number"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="updateEmail" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="updateEmail"
+                  placeholder="Enter email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="updatePassword" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="updatePassword"
+                  placeholder="Enter password"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="updateAddress" class="form-label">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="updateAddress"
+                  placeholder="Enter address"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="updateAvatar" class="form-label">User Avatar</label>
+                <input type="file" class="form-control" id="updateAvatar"/>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="submitUpdateUserForm()"
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Copyright © 2024. All rights reserved. Royal Restaurant
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- sweet alert js -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script>
+      function openUpdateModal(userId) {
+        const userData = {
+          name: "John Smith",
+          contactNumber: "+94 123456789",
+          email: "john.smith@example.com",
+          password: "password123",
+          address: "123 Main St, Colombo",
+          roleType: "User",
+        };
+
+        document.getElementById("updateUserName").value = userData.name;
+        document.getElementById("updateContactNumber").value = userData.contactNumber;
+        document.getElementById("updateEmail").value = userData.email;
+        document.getElementById("updatePassword").value = userData.password;
+        document.getElementById("updateAddress").value = userData.address;
+        document.getElementById("updateRoleType").value = userData.roleType;
+
+        // Open the modal
+        $("#updateUserModal").modal("show");
+      }
+
+      // Function to handle the update form submission
+      function submitUpdateForm() {
+        // Get updated form values
+        const name = document.getElementById("updateUserName").value;
+        const contactNumber = document.getElementById(
+          "updateContactNumber"
+        ).value;
+        const email = document.getElementById("updateEmail").value;
+        const password = document.getElementById("updatePassword").value;
+        const address = document.getElementById("updateAddress").value;
+        const roleType = document.getElementById("updateRoleType").value;
+        const avatar = document.getElementById("updateAvatar").files[0];
+
+        // Validate form
+        if (
+          name === "" ||
+          contactNumber === "" ||
+          email === "" ||
+          password === "" ||
+          address === "" ||
+          roleType === "Select role type" ||
+          !avatar
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Please fill all the fields!",
+          });
+          return;
+        }  
+
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "User details updated successfully!",
+        });
+
+        
+        $("#updateUserModal").modal("hide");
+      }
+    </script>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

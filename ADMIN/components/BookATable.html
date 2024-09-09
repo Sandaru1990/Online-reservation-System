@@ -76,7 +76,7 @@
       }
 
       .header {
-        background-color: #2e6779;
+        background-color: #2b9dc0;
         padding: 10px;
         color: white;
         border-bottom: 1px solid #ddd;
@@ -151,7 +151,7 @@
       console.log(sessionStorage.getItem("uid"));
       sessionStorage.getItem("uid") != null
         ? (window.location.href = "#")
-        : (window.location.href = "../AdminEmployeeLogin.html");
+        : (window.location.href = "../../AdminEmployeeLogin.html");
 
       function logout() {
         sessionStorage.removeItem("uid");
@@ -162,42 +162,42 @@
     </script>
     <!-- Sidebar -->
     <div class="sidebar">
-      <h4>Royal Restaurant</h4>
-      <br />
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="../DashBoard.html">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Book A Table List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Order List</a>
-        </li>
+        <h4>Royal Restaurant</h4>
         <br />
-      </ul>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="#"
-            >Product List</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"
-            >Staff List</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"
-            >User List</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Settings</a>
-        </li>
-      </ul>
-    </div>
-
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="../DashBoard.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Book A Table List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../components/Orderlist.html">Order List</a>
+          </li>
+          <br />
+        </ul>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="../components/MenuDetails.html"
+              >Product List</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../components/Staffdetails.html"
+              >Staff List</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../components/Userdetails.html"
+              >User List</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../components/Setting.html">Settings</a>
+          </li>
+        </ul>
+      </div>
+  
     <div class="navbar">
       <h2></h2>
       <br />
