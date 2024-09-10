@@ -10,7 +10,7 @@ body {
 }
 
 .signup-container {
-    background-color: #fff3e0;
+    background-color: #c0a573;
     border-radius: 15px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -21,7 +21,7 @@ body {
 
 .signup-image {
     flex: 1;
-    background-image: url('assets/144863099b1cff681e3c707f202b9cf427708105.png'); /* Replace with your image path */
+    background-image: url('../assets/144863099b1cff681e3c707f202b9cf427708105.png'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     position: relative;

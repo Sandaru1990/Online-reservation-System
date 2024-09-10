@@ -26,7 +26,7 @@
   
       .sidebar {
         width: 210px;
-        background-color: #343a40;
+        background-color: #314961;
         height: 100vh;
         position: fixed;
         top: 0;
@@ -58,7 +58,7 @@
       .content {
         margin-top: 5px;
         margin-left: 210px;
-        padding: 10px;
+        padding: 8px;
       }
 
       .content header {
@@ -70,25 +70,25 @@
         font-size: 15px;
       }
 
-      .navbar-right {
-        display: flex;
-        align-items: center;
-      }
-
       .header {
-        background-color: #2b9dc0;
-        padding: 10px;
+        background-color: rgb(33, 133, 133);
+        padding: 1px;
         color: white;
         border-bottom: 1px solid #ddd;
         text-align: center;
+        border-radius: 8px;
       }
 
-      .navbar-right img {
+      .navbar {
+        display: flex;
+        align-items: center;
+      }
+      .navbar img {
         border-radius: 50%;
         width: 30px;
         height: 30px;
         object-fit: cover;
-        margin-left: 10px;
+        margin-left: 00px;
       }
 
       .table-container {
@@ -98,21 +98,24 @@
         box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
       }
 
-      .table-container .table th,
+      .table-container .table th{
+        vertical-align: middle;
+        padding: 2px;
+        font-size: 14px;
+        text-align: center;
+        background-color: rgb(137, 132, 182);
+      }
+
       .table-container .table td {
         vertical-align: middle;
-        padding: 5px;
+        padding: 1px;
         font-size: 14px;
+        text-align: center;
       }
 
-      .table-container .avatar {
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-      }
 
       .pagination {
-        margin-top: 10px;
+        margin-top: 5px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -135,15 +138,17 @@
       }
 
       .footer {
-        background-color: #343a40;
+        background-color: #314961;
         color: white;
         text-align: center;
         padding: 10px;
         position: fixed;
         bottom: 0;
         width: 100%;
-        margin-left: 0px;
+       
       }
+
+   
     </style>
   </head>
   <body>
@@ -178,8 +183,8 @@
         </ul>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="../components/MenuDetails.html"
-              >Product List</a
+            <a class="nav-link" href="../components/Menudetails.html"
+              >Menu Item Details</a
             >
           </li>
           <li class="nav-item">
@@ -232,7 +237,7 @@
     <!-- Content -->
     <div class="content">
       <div class="header">
-        <h3>Book a Table Details</h3>
+        <h3>Table Booking Details</h3>
       </div>
 
       <div class="table-container mt-4">

@@ -12,77 +12,106 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
+        background-color: #1e1f20;
+        color: #050505;
       }
-
+  
       .sidebar {
-        width: 220px;
-        background-color: #495057;
+        width: 210px;
+        background-color: #314961;
         height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
-        padding: 20px;
+        padding: 10px;
         color: white;
       }
 
-      .sidebar h4 {
-        margin-bottom: 30px;
-        font-size: 18px;
-        font-weight: bold;
+      .sidebar-header h4 {
+        margin-bottom: 20px;
       }
 
       .sidebar .nav-link {
         color: white;
         padding: 10px 15px;
         display: block;
-        font-size: 15px;
       }
 
       .sidebar .nav-link.active {
-        background-color: #6e6a69;
+        background-color: #495057;
         border-radius: 5px;
       }
 
       .sidebar .nav-link:hover {
-        background-color: #c9c3c1;
+        background-color: #444;
         border-radius: 5px;
       }
 
       .content {
-        margin-left: 220px;
-        padding: 20px;
+        margin-top: 5px;
+        margin-left: 210px;
+        padding: 8px;
+      }
+
+      .content header {
+        width: 50px;
+      }
+
+      .sidebar ul.nav.flex-column li.nav-item {
+        margin-bottom: 2px;
+        font-size: 15px;
       }
 
       .header {
-        background-color: #263238;
-        padding: 10px;
+        background-color: rgb(33, 133, 133);
         color: white;
+        border-bottom: 1px solid #ddd;
         text-align: center;
-        font-size: 24px;
-        margin-bottom: 20px;
+        border-radius: 8px;
+        font-size: 30px;
+       
+      }
+
+    
+      .pagination {
+        margin-top: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
 
-      .header .admin-info {
+      .pagination-controls {
         display: flex;
-        align-items: center;
+        gap: 5px;
       }
 
-      .header .admin-info img {
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-        margin-left: 10px;
+      .modal-dialog {
+        max-width: 50%; /* Adjust the percentage as needed */
+      }
+
+      .page-number {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .footer {
+        background-color: #314961;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+       
       }
 
       .card-container {
         display: flex;
         justify-content: space-around;
         margin-bottom: 20px;
+        margin-top: 20px;
       }
 
       .card {
@@ -104,16 +133,6 @@
         color: #fff;
       }
 
-      .footer {
-        background-color: #343a40;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        bottom: 0;
-        width: calc(100% - 220px);
-        margin-left: 220px;
-      }
 
       .navbar-right {
         display: flex;
@@ -156,7 +175,7 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../admin/components/Order.html"
+          <a class="nav-link" href="../admin/components/Orderlist.html"
             >Order List</a
           >
         </li>
@@ -207,7 +226,7 @@
                 Admin
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Update Profile</a></li>
+                <li><a class="dropdown-item" href="../admin/components/UpdateProfile.html">Update Profile</a></li>
                 <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
               </ul>
             </div>

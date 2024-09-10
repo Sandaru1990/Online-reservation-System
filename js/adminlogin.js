@@ -11,14 +11,14 @@ function togglePassword() {
 }
 
 document.getElementById("btnLogin").addEventListener("click", () => {
+ // alert("sandaru");
   fetch(
     `http://localhost:8080/api/user-login?email=${encodeURIComponent(
       document.getElementById("email").value
     )}&password=${encodeURIComponent(
       document.getElementById("password").value
     )}`
-  )
-    .then((response) => {
+  ).then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -26,6 +26,7 @@ document.getElementById("btnLogin").addEventListener("click", () => {
     })
     .then((data) => {
       if (data) { 
+        // alert(data);
         sessionStorage.setItem("uid", data.userId);
 
         if (data.roleType === "ADMIN") {

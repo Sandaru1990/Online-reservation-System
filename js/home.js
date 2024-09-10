@@ -151,31 +151,93 @@ document.getElementById("booking-special-request").addEventListener("input", fun
 
 
 
-document.getElementById("sendFeednackButton").addEventListener("click", () => {
+document.getElementById("sendFeednackButton").addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent form submission for validation
+
+  // Get form values
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Simple email pattern for validation
+  const emailPattern = /^[^\s@]+@gmail\.com$/;
+
+  // Validate form fields for null values
+  if (!name) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Name",
+      text: "Please enter your name.",
+    });
+    return;
+  }
+
+  if (!email) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Email",
+      text: "Please enter your email.",
+    });
+    return;
+  }
+
+  if (!emailPattern.test(email)) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Email",
+      text: "Please enter a valid Gmail address (e.g., user@gmail.com).",
+    });
+    return;
+  }
+
+  if (!message) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Message",
+      text: "Please enter your message.",
+    });
+    return;
+  }
+
+  // If validation is successful, send feedback
   fetch("http://localhost:8080/api/set-user-feedback", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      userName: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      message: document.getElementById("message").value,
+      userName: name,
+      email: email,
+      message: message,
     }),
   })
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        alert("success");
-        location.reload();
+        Swal.fire({
+          icon: "success",
+          title: "Feedback Sent",
+          text: "Thank you for your feedback!",
+        }).then(() => {
+          location.reload();
+        });
       } else {
-        alert("unsuccess");
+        Swal.fire({
+          icon: "error",
+          title: "Failed",
+          text: "Something went wrong, please try again!",
+        });
       }
     })
     .catch(() => {
-      alert("unsuccess");
+      Swal.fire({
+        icon: "error",
+        title: "Failed",
+        text: "Something went wrong, please try again!",
+      });
     });
 });
+
 
 
 
@@ -203,6 +265,70 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("testimonialss").appendChild(testimonialCard);
       });
     });
+
+    fetch("http://localhost:8080/api/view-all-menu")
+    .then((response) => response.json())
+    .then((data) => {
+      data.map((e) => {
+        let recipeCard = document.createElement("div");
+        recipeCard.className = "recipe-card";
+        recipeCard.id = "recipe-card";
+
+        let recipeImg = document.createElement("img");
+        recipeImg.src = `data:image/png;base64,${e.mealImage}`;
+
+        let recipeCardContent = document.createElement("div");
+        recipeCardContent.className = "recipe-card-content";
+        recipeCardContent.id = "recipe-card-content";
+
+        let mealName = document.createElement("h4");
+        mealName.textContent = e.mealName;
+
+        let mealDicription = document.createElement("p");
+        mealDicription.textContent = e.mealDicription;
+
+        let rating = document.createElement("div");
+        rating.textContent = "★★★★★";
+        rating.className = "rating";
+        rating.id = "rating";
+
+        let price = document.createElement("div");
+        price.textContent = `LKR ${e.mealPrice}`;
+        price.className = "price";
+        price.id = "price";
+
+        let btnGroup = document.createElement("div");
+        btnGroup.className = "btn-group";
+        btnGroup.id = "btn-group";
+
+        let addCart = document.createElement("button");
+        addCart.textContent = "add cart";
+        addCart.className = "btn";
+        addCart.id = "addCartButton";
+        addCart.setAttribute("data-name", e.mealName);
+        addCart.setAttribute("data-price", e.mealPrice);
+
+        let orderNow = document.createElement("button");
+        orderNow.textContent = "order now";
+        orderNow.className = "btn";
+        orderNow.id = "orderNowButton";
+
+        btnGroup.appendChild(addCart);
+        btnGroup.appendChild(orderNow);
+
+        recipeCardContent.appendChild(mealName);
+        recipeCardContent.appendChild(mealDicription);
+        recipeCardContent.appendChild(rating);
+        recipeCardContent.appendChild(price);
+        recipeCardContent.appendChild(btnGroup);
+
+        recipeCard.appendChild(recipeImg);
+        recipeCard.appendChild(recipeCardContent);
+
+        document.getElementById("recipe-cards").appendChild(recipeCard);
+      });
+    });
+
 
 });
 

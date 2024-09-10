@@ -12,9 +12,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
     <script defer src="/js/index.js"></script>
-    
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -77,16 +79,16 @@
         border-radius: 8px;
       }
 
-      .navbar-right {
-        margin-left: 1220px;
+      .navbar {
+        display: flex;
+        align-items: center;
       }
-
-      .navbar-right img {
+      .navbar img {
         border-radius: 50%;
         width: 30px;
         height: 30px;
         object-fit: cover;
-        margin-left: 10px;
+        margin-left: 00px;
       }
 
       .table-container {
@@ -94,7 +96,6 @@
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
-        
       }
 
       .table-container .table th{
@@ -146,31 +147,36 @@
         width: 100%;
        
       }
+      .btn-action {
+        padding: 5px 10px;
+      }
+      .btn-add-service {
+        margin-bottom: 10px;
+      }
+      
     </style>
   </head>
   <body>
-   
     <!-- <script>
-        console.log(sessionStorage.getItem("uid"));
-        sessionStorage.getItem("uid") != null
-          ? (window.location.href = "#")
-          : (window.location.href = "../../AdminEmployeeLogin.html");
-  
-        function logout() {
-          sessionStorage.removeItem("uid");
-          sessionStorage.clear();
-          window.location.href = "../../AdminEmployeeLogin.html";
-          //alert("logout");
-        }
-      </script> -->
+      console.log(sessionStorage.getItem("uid"));
+      sessionStorage.getItem("uid") != null
+        ? (window.location.href = "#")
+        : (window.location.href = "../../AdminEmployeeLogin.html");
 
+      function logout() {
+        sessionStorage.removeItem("uid");
+        sessionStorage.clear();
+        window.location.href = "../../AdminEmployeeLogin.html";
+        alert("logout");
+      } -->
+    </script>
     <!-- Sidebar -->
     <div class="sidebar">
       <h4>Royal Restaurant</h4>
       <br />
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="../DashBoard.html">Dashboard</a>
+          <a class="nav-link" href="../Dashboard.html">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../components/BookATable.html"
@@ -184,9 +190,7 @@
       </ul>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="../components/Menudetails.html"
-            >Menu Item Details</a
-          >
+          <a class="nav-link active" href="#">Menu Item Details</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../components/Staffdetails.html"
@@ -194,7 +198,9 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">User List</a>
+          <a class="nav-link" href="../components/Userdetails.html"
+            >User List</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../components/Setting.html">Settings</a>
@@ -236,25 +242,33 @@
     <!-- Content -->
     <div class="content">
       <div class="header">
-        <h3>List of User Details</h3>
+        <h3>Menu Item Details</h3>
       </div>
 
       <div class="table-container mt-4">
+        <button
+          class="btn btn-primary btn-add-service"
+          data-toggle="modal"
+          data-target="#serviceModal"
+        >
+          Add New Menu
+        </button>
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>User Avatar</th>
-              <th>Name</th>
-              <th>Contact Number</th>
-              <th>Email</th>
-              <th>Address</th>
-              <th>Role Type</th>
+              <th>Meal ID</th>
+              <th>Meal Image</th>
+              <th>Meal Name</th>
+              <th>Meal Price</th>
+              <th>Meal Rate</th>
+              <th>Meal Description</th>
+            
               <th>Action</th>
             </tr>
           </thead>
-          <tbody id="userData">
-       
-
+          <tbody id="menuData">
+            
+            
           </tbody>
         </table>
         <div class="pagination">
@@ -268,101 +282,183 @@
       </div>
     </div>
 
-    <!-- Modal for Update User Details -->
+    <!-- Modal for Add Product -->
     <div
       class="modal fade"
-      id="updateUserModal"
+      id="serviceModal"
       tabindex="-1"
-      aria-labelledby="updateUserModalLabel"
+      aria-labelledby="serviceModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="updateUserModalLabel">
-              Update User Details
+            <h5 class="modal-title" id="serviceModalLabel">
+              Add Product Details
             </h5>
             <button
               type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
+              class="close"
+              data-dismiss="modal"
               aria-label="Close"
-            ></button>
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body">
-            <form id="updateUserForm">
-              <div class="mb-3">
-                <label for="updateUserName" class="form-label">Name</label>
+            <form>
+              <div class="form-group">
+                <label for="mealName">Meal Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="updateUserName"
-                  placeholder="Enter name"
-                  required
+                  id="mealName"
+                  value="Beard"
                 />
               </div>
-              <div class="mb-3">
-                <label for="updateContactNumber" class="form-label"
-                  >Contact Number</label
-                >
+
+              <div class="form-group">
+                <label for="mealPrice">Meal Price</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="updateContactNumber"
-                  placeholder="Enter contact number"
-                  required
+                  id="mealPrice"
+                  value="200.00"
                 />
               </div>
-              <div class="mb-3">
-                <label for="updateEmail" class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="updateEmail"
-                  placeholder="Enter email"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updatePassword" class="form-label">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="updatePassword"
-                  placeholder="Enter password"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="updateAddress" class="form-label">Address</label>
+
+              <div class="form-group">
+                <label for="mealRate">Meal Rate</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="updateAddress"
-                  placeholder="Enter address"
-                  required
+                  id="mealRate"
+                  value="2.3"
                 />
               </div>
+
+              <div class="form-group">
+                <label for="mealDescription">Meal Description</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mealDescription"
+                  value="Beard Sculpting"
+                />
+              </div>
+
               <div class="mb-3">
-                <label for="updateAvatar" class="form-label">User Avatar</label>
-                <input type="file" class="form-control" id="updateAvatar"/>
+                <label for="formFile" class="form-label">Meal Image</label>
+                <input class="form-control" type="file" id="formFile" />
+              </div>
+
+              <div class="form-group">
+                <label for="mealType">Meal Type</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mealType"
+                  value="MEAT"
+                />
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
+              class="btn btn-primary"
+              onclick="submitMenuForm()"
             >
-              Close
+              Add Product
             </button>
             <button
               type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Update Product -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="updateModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateModalLabel">
+              Update Product Details
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="updateMealName">Meal Name</label>
+                <input type="text" class="form-control" id="updateMealName" />
+              </div>
+
+              <div class="form-group">
+                <label for="updateMealPrice">Meal Price</label>
+                <input type="text" class="form-control" id="updateMealPrice" />
+              </div>
+
+              <div class="form-group">
+                <label for="updateMealRate">Meal Rate</label>
+                <input type="text" class="form-control" id="updateMealRate" />
+              </div>
+
+              <div class="form-group">
+                <label for="updateMealDescription">Meal Description</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="updateMealDescription"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="updateFormFile" class="form-label"
+                  >Meal Image</label
+                >
+                <input class="form-control" type="file" id="updateFormFile" />
+              </div>
+
+              <div class="form-group">
+                <label for="updateMealType">Meal Type</label>
+                <input type="text" class="form-control" id="updateMealType" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
               class="btn btn-primary"
-              onclick="submitUpdateUserForm()"
+              onclick="submitUpdateMenuForm()"
             >
               Save Changes
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
             </button>
           </div>
         </div>
@@ -374,80 +470,6 @@
       Copyright © 2024. All rights reserved. Royal Restaurant
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-
-    <!-- sweet alert js -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-    <script>
-      function openUpdateModal(userId) {
-        const userData = {
-          name: "John Smith",
-          contactNumber: "+94 123456789",
-          email: "john.smith@example.com",
-          password: "password123",
-          address: "123 Main St, Colombo",
-          roleType: "User",
-        };
-
-        document.getElementById("updateUserName").value = userData.name;
-        document.getElementById("updateContactNumber").value = userData.contactNumber;
-        document.getElementById("updateEmail").value = userData.email;
-        document.getElementById("updatePassword").value = userData.password;
-        document.getElementById("updateAddress").value = userData.address;
-        document.getElementById("updateRoleType").value = userData.roleType;
-
-        // Open the modal
-        $("#updateUserModal").modal("show");
-      }
-
-      // Function to handle the update form submission
-      function submitUpdateForm() {
-        // Get updated form values
-        const name = document.getElementById("updateUserName").value;
-        const contactNumber = document.getElementById(
-          "updateContactNumber"
-        ).value;
-        const email = document.getElementById("updateEmail").value;
-        const password = document.getElementById("updatePassword").value;
-        const address = document.getElementById("updateAddress").value;
-        const roleType = document.getElementById("updateRoleType").value;
-        const avatar = document.getElementById("updateAvatar").files[0];
-
-        // Validate form
-        if (
-          name === "" ||
-          contactNumber === "" ||
-          email === "" ||
-          password === "" ||
-          address === "" ||
-          roleType === "Select role type" ||
-          !avatar
-        ) {
-          Swal.fire({
-            icon: "error",
-            title: "Error",
-            text: "Please fill all the fields!",
-          });
-          return;
-        }  
-
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "User details updated successfully!",
-        });
-
-        
-        $("#updateUserModal").modal("hide");
-      }
-    </script>
-
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -455,9 +477,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+     <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
