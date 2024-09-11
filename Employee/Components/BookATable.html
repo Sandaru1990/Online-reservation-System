@@ -152,7 +152,7 @@
     </style>
   </head>
   <body>
-    <script>
+    <!-- <script>
       console.log(sessionStorage.getItem("uid"));
       sessionStorage.getItem("uid") != null
         ? (window.location.href = "#")
@@ -164,7 +164,7 @@
         window.location.href = "../../AdminEmployeeLogin.html";
        // alert("logout");
       }
-    </script>
+    </script> -->
     <!-- Sidebar -->
     <div class="sidebar">
         <h4>Royal Restaurant</h4>
@@ -177,30 +177,11 @@
             <a class="nav-link active" href="#">Book A Table List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../components/Orderlist.html">Order List</a>
+            <a class="nav-link" href="../Components/Order.html">Order List</a>
           </li>
           <br />
         </ul>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="../components/Menudetails.html"
-              >Menu Item Details</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../components/Staffdetails.html"
-              >Staff List</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../components/Userdetails.html"
-              >User List</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../components/feedback.html">Feedback</a>
-          </li>
-        </ul>
+       
       </div>
   
     <div class="navbar">
@@ -225,7 +206,7 @@
                 Admin
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <!-- <li><a class="dropdown-item" href="#">Update Profile</a></li> -->
+                <li><a class="dropdown-item" href="#">Update Profile</a></li>
                 <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
               </ul>
             </div>

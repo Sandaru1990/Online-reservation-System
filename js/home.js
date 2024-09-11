@@ -151,120 +151,124 @@ document.getElementById("booking-special-request").addEventListener("input", fun
 
 
 
-document.getElementById("sendFeednackButton").addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent form submission for validation
+// document.getElementById("sendFeednackButton").addEventListener("click", (e) => {
+//   e.preventDefault(); // Prevent form submission for validation
 
-  // Get form values
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
+//   // Get form values
+//   const name = document.getElementById("name").value.trim();
+//   const email = document.getElementById("email").value.trim();
+//   const message = document.getElementById("message").value.trim();
 
-  // Simple email pattern for validation
-  const emailPattern = /^[^\s@]+@gmail\.com$/;
+//   // Simple email pattern for validation
+//   const emailPattern = /^[^\s@]+@gmail\.com$/;
 
-  // Validate form fields for null values
-  if (!name) {
-    Swal.fire({
-      icon: "error",
-      title: "Invalid Name",
-      text: "Please enter your name.",
-    });
-    return;
-  }
+//   // Validate form fields for null values
+//   if (!name) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Invalid Name",
+//       text: "Please enter your name.",
+//     });
+//     return;
+//   }
 
-  if (!email) {
-    Swal.fire({
-      icon: "error",
-      title: "Invalid Email",
-      text: "Please enter your email.",
-    });
-    return;
-  }
+//   if (!email) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Invalid Email",
+//       text: "Please enter your email.",
+//     });
+//     return;
+//   }
 
-  if (!emailPattern.test(email)) {
-    Swal.fire({
-      icon: "error",
-      title: "Invalid Email",
-      text: "Please enter a valid Gmail address (e.g., user@gmail.com).",
-    });
-    return;
-  }
+//   if (!emailPattern.test(email)) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Invalid Email",
+//       text: "Please enter a valid Gmail address (e.g., user@gmail.com).",
+//     });
+//     return;
+//   }
 
-  if (!message) {
-    Swal.fire({
-      icon: "error",
-      title: "Invalid Message",
-      text: "Please enter your message.",
-    });
-    return;
-  }
+//   if (!message) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Invalid Message",
+//       text: "Please enter your message.",
+//     });
+//     return;
+//   }
 
-  // If validation is successful, send feedback
-  fetch("http://localhost:8080/api/set-user-feedback", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      userName: name,
-      email: email,
-      message: message,
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data) {
-        Swal.fire({
-          icon: "success",
-          title: "Feedback Sent",
-          text: "Thank you for your feedback!",
-        }).then(() => {
-          location.reload();
-        });
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Failed",
-          text: "Something went wrong, please try again!",
-        });
-      }
-    })
-    .catch(() => {
-      Swal.fire({
-        icon: "error",
-        title: "Failed",
-        text: "Something went wrong, please try again!",
-      });
-    });
-});
-
-
+//   // If validation is successful, send feedback
+//   fetch("http://localhost:8080/api/set-user-feedback", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       userName: name,
+//       email: email,
+//       message: message,
+//     }),
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       if (data) {
+//         Swal.fire({
+//           icon: "success",
+//           title: "Feedback Sent",
+//           text: "Thank you for your feedback!",
+//         }).then(() => {
+//           location.reload();
+//         });
+//       } else {
+//         Swal.fire({
+//           icon: "error",
+//           title: "Failed",
+//           text: "Something went wrong, please try again!",
+//         });
+//       }
+//     })
+//     .catch(() => {
+//       Swal.fire({
+//         icon: "error",
+//         title: "Failed",
+//         text: "Something went wrong, please try again!",
+//       });
+//     });
+// });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:8080/api/view-all-user-feedback")
-    .then((response) => response.json())
-    .then((data) => {
-      data.map((e) => {
-        let testimonialCard = document.createElement("div");
-        testimonialCard.className = "testimonial-card";
 
-        let name = document.createElement("h4");
-        name.textContent = e.userName;
 
-        let email = document.createElement("p");
-        email.textContent = e.email;
+// document.addEventListener("DOMContentLoaded", () => {
+//   fetch("http://localhost:8080/api/view-all-user-feedback")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       data.map((e) => {
+//         // console.log("text"+e);
+//         let testimonialCard = document.createElement("div");
+//         testimonialCard.className = "testimonial-card";
 
-        let message = document.createElement("p");
-        message.textContent = e.message;
+//         let name = document.createElement("h4");
+//         name.textContent = e.userName;
 
-        testimonialCard.appendChild(name);
-        testimonialCard.appendChild(email);
-        testimonialCard.appendChild(message);
+//         let email = document.createElement("p");
+//         email.textContent = e.email;
 
-        document.getElementById("testimonialss").appendChild(testimonialCard);
-      });
-    });
+//         let message = document.createElement("p");
+//         message.textContent = e.message;
+
+//         testimonialCard.appendChild(name);
+//         testimonialCard.appendChild(email);
+//         testimonialCard.appendChild(message);
+//         document.getElementById("testimonials").appendChild(testimonialCard);
+       
+//       });
+
+//     });
+
+//   })
 
     fetch("http://localhost:8080/api/view-all-menu")
     .then((response) => response.json())
@@ -330,5 +334,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-});
+
+
+
+
+
+
 

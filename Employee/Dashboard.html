@@ -148,7 +148,7 @@
     </style>
   </head>
   <body>
-    <script>
+    <!-- <script>
       console.log(sessionStorage.getItem("uid"));
       sessionStorage.getItem("uid") != null
         ? (window.location.href = "#")
@@ -159,7 +159,7 @@
         sessionStorage.clear();
         window.location.href = "../AdminEmployeeLogin.html";
         //alert("logout");
-      }
+      } -->
     </script>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -170,37 +170,17 @@
           <a class="nav-link active" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../admin/components/BookATable.html"
+          <a class="nav-link" href="../Employee/components/BookATable.html"
             >Book A Table List</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../admin/components/Orderlist.html"
+          <a class="nav-link" href="../Employee/components/Order.html"
             >Order List</a
           >
         </li>
         <br />
-      </ul>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="../admin/components/MenuDetails.html"
-            >Product List</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../admin/components/Staffdetails.html"
-            >Staff List</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../admin/components/Userdetails.html"
-            >User List</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../admin/components/feedback.html">Feedback</a>
-        </li>
-      </ul>
+      
     </div>
 
   <!-- Sidebar -->
@@ -281,7 +261,7 @@
       let count4 = 0;
       let count5 = 0;
       document.addEventListener("DOMContentLoaded", () => {
-        fetch("http://localhost:8080/api/view-all-users-by-role?roleType=USER")
+        fetch("http://localhost:8080/api/view-all-service")
           .then((response) => response.json())
           .then((data) => {
             data.map(() => {

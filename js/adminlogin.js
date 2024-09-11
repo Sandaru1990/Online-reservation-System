@@ -45,7 +45,18 @@ document.getElementById("btnLogin").addEventListener("click", () => {
           }).then(() => {
             window.location.href = "employee/DashBoard.html";
           });
+        }else if (data.roleType === "USER") {
+          Swal.fire({
+            icon: "success",
+            title: "Login Successful",
+            text: "Welcome, ABC Restaurant!..",
+      })
+          .then(() => {
+            window.location.href = "home.html";
+          });
+          
         }
+
       } else {
         Swal.fire({
           icon: "error",

@@ -2,13 +2,13 @@ let uid = 0;
 document.addEventListener("DOMContentLoaded", () => {
   const uid = sessionStorage.getItem("uid");
 
-  // fetch(`http://localhost:8080/api/view-all-users/${uid}`)
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     document.getElementById(
-  //       "profi"
-  //     ).src = `data:image/png;base64,${data.userProfile}`;
-  //   });
+  fetch(`http://localhost:8080/api/view-all-users/${uid}`)
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById(
+        "profi"
+      ).src = `data:image/png;base64,${data.userProfile}`;
+    });
 
     fetch("http://localhost:8080/api/view-all-food-orders")
     .then((response) => response.json())
