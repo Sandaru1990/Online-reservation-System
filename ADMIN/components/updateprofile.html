@@ -103,6 +103,19 @@
     </style>
   </head>
   <body>
+    <script>
+      console.log(sessionStorage.getItem("uid"));
+      sessionStorage.getItem("uid") != null
+        ? (window.location.href = "#")
+        : (window.location.href = "../../AdminEmployeeLogin.html");
+
+      function logout() {
+        sessionStorage.removeItem("uid");
+        sessionStorage.clear();
+        window.location.href = "../../AdminEmployeeLogin.html";
+        //alert("logout");
+      }
+    </script>
     <div class="sidebar">
       <h4>Royal Restaurant</h4>
       <br />
@@ -122,25 +135,26 @@
       </ul>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="../components/MenuDetails.html"
+          <a class="nav-link" href="#"
             >Product List</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../components/Staffdetails.html"
+          <a class="nav-link" href="#"
             >Staff List</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../components/Userdetails.html"
+          <a class="nav-link" href="#"
             >User List</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../components/Setting.html">Settings</a>
+          <a class="nav-link" href="#">Settings</a>
         </li>
       </ul>
     </div>
+
 
     <!-- Content -->
     <div class="content">

@@ -103,6 +103,19 @@
     </style>
   </head>
   <body>
+    <script>
+        console.log(sessionStorage.getItem("uid"));
+        sessionStorage.getItem("uid") != null
+          ? (window.location.href = "#")
+          : (window.location.href = "../../AdminEmployeeLogin.html");
+
+          function logout() {
+        sessionStorage.removeItem("uid");
+        sessionStorage.clear();
+        window.location.href = "../../AdminEmployeeLogin.html";
+        //alert("logout");
+      }
+      </script>
     <div class="sidebar">
       <h4>Royal Restaurant</h4>
       <br />
@@ -111,12 +124,12 @@
           <a class="nav-link active" href="../DashBoard.html">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../components/BookATable.html"
+          <a class="nav-link" href="#"
             >Book A Table List</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../components/Order.html">Order List</a>
+          <a class="nav-link" href="#">Order List</a>
         </li>
         <br />
       </ul>

@@ -150,6 +150,19 @@
     </style>
 </head>
 <body>
+    <script>
+        console.log(sessionStorage.getItem("uid"));
+        sessionStorage.getItem("uid") != null
+          ? (window.location.href = "#")
+          : (window.location.href = "../../AdminEmployeeLogin.html");
+  
+        function logout() {
+          sessionStorage.removeItem("uid");
+          sessionStorage.clear();
+          window.location.href = "../../AdminEmployeeLogin.html";
+          //alert("logout");
+        } 
+      </script>
 
     <!-- Sidebar -->
     <div class="sidebar">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
+    <title>Staff Dashboard</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -148,7 +148,7 @@
     </style>
   </head>
   <body>
-    <!-- <script>
+    <script>
       console.log(sessionStorage.getItem("uid"));
       sessionStorage.getItem("uid") != null
         ? (window.location.href = "#")
@@ -159,7 +159,7 @@
         sessionStorage.clear();
         window.location.href = "../AdminEmployeeLogin.html";
         //alert("logout");
-      } -->
+      }
     </script>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -203,7 +203,7 @@
                   src="https://via.placeholder.com/40"
                   alt="Profile Picture"
                 />
-                Admin
+                staff
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="../admin/components/UpdateProfile.html">Update Profile</a></li>
@@ -222,7 +222,7 @@
 
       <div class="card-container">
         <div class="card">
-          <div class="card-title">All Services</div>
+          <div class="card-title">All Customers</div>
           <div class="card-count" id="serviceCount"></div>
         </div>
         <div class="card yellow">
