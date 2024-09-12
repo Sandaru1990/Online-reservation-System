@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royal Restaurant Landing Page</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <link rel="stylesheet" href="css/home.css"/>
+      <script defer src="/js/home.js"></script>
+      <script defer src="/js/feedback.js"></script>
+
+  </head>
+  
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#home" id="navbar-brand">
+        <img src="assets/17c9f36e3c996b00d2d0a2257c0b90374f2d4384.png" alt="Royal Restaurant">
+        <label>Royal Restaurant</label>   
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#book-table">Book a Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team Members</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-login" href="AdminEmployeeLogin.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-signup" href="signup.html">Signup</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section (Home) -->
+    <section id="home" class="hero-section">
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Enjoy Our Delicious Meals</h1>
+        <p>
+          Indulge in a culinary experience like no other. Our chefs craft each
+          dish with passion and precision,<br />
+          ensuring that every bite is a celebration of flavor.
+        </p>
+        <a href="#book-table" class="btn btn-book-table">Book A Table</a>
+        <a href="#menu" class="btn btn-order">Order</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="welcome-section">
+      <div class="image-container"></div>
+      <div class="text-container" id="text-container">
+        <h2>Welcome to Restaurant</h2>
+        <p>Welcome to Royal Paradise Hotel, where culinary artistry meets heartfelt hospitality.</p>
+        <p>At Royal Paradise Hotel, we believe that food is more than just nourishment—it's an experience that brings people together, creates memories, and sparks joy. Our journey began with a simple idea: to create a space where people can enjoy delicious, thoughtfully prepared meals in a warm and welcoming atmosphere.</p>
+        <p>Founded by Royal Samarasignhe in 2001, our restaurant has grown from a small local eatery into a beloved destination for food lovers near and far. With a passion for culinary excellence and a dedication to quality, Royal Samarasignhe envisioned a place where every meal would be a celebration of flavor and every guest would feel like family.</p> 
+      </div>
+    </section>
+
+   
+ <!-- Menu Section -->
+ <section id="menu" class="menu-section">
+  <h2>Our Menus</h2>
+
+  <div class="browse-recipes">
+    <ul>
+      <li>
+        <img src="assets/0bc4884559f49ce091f8a6b2f9d67e7a5e0c80d6.png" alt="Meat" />
+        FastFood
+      </li>
+      <li>
+        <img src="assets/dbf915a3d1dfe42b54411f9d5a02b2b96f5e4709.png" alt="Seafood" />
+        Seafood
+      </li>
+      <li>
+        <img src="assets/60afb8c2c8a3f4d585ab3d0063deec4e71ea7e5c.png" alt="Vegetarian" />
+        Vegetarian
+      </li>
+    </ul>
+  </div>
+
+  <div class="popular-recipes">
+    <div class="recipe-cards" id="recipe-cards">
+      <div class="recipe-card" data-name="Katta Sabol" data-price="24">
+        <img src="assets/61fc67dfa7f925fcd9ac28d038ffe41d567f4258.png" alt="Katta Sabol">
+        <div class="recipe-card-content">
+          <h4>Katta Sabol</h4>
+          <p>Delicious combination of spices with fresh vegetables.</p>
+          <div>
+            <span class="author">By Kevin Rieger</span>
+            <span class="comments">5 Comments</span>
+          </div>
+          <div class="rating">★★★★★</div>
+          <div class="price">24$</div>
+          <div class="btn-group">
+            <button class="btn add-to-cart">Add to Cart</button>
+            <button class="btn">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card" data-name="Chees Pasta" data-price="24">
+        <img src="assets/ed94d351046ec0167f3702b0a4fe24ca9c01b140.png" alt="Chees Pasta">
+        <div class="recipe-card-content">
+          <h4>Chees Pasta</h4>
+          <p>Fresh pasta with a blend of vegetables and cheese.</p>
+          <div>
+            <span class="author">By Kevin Rieger</span>
+            <span class="comments">4 Comments</span>
+          </div>
+          <div class="rating">★★★★★</div>
+          <div class="price">24$</div>
+          <div class="btn-group">
+            <button class="btn add-to-cart">Add to Cart</button>
+            <button class="btn">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card" data-name="Vegetable Sup" data-price="24">
+        <img src="assets/1a4fd975d28bd7dc6cb4af7a5fe88f047623f502.png" alt="Vegetable Sup">
+        <div class="recipe-card-content">
+          <h4>Vegetable Sup</h4>
+          <p>Warm soup made with a variety of fresh vegetables.</p>
+          <div>
+            <span class="author">By Kevin Rieger</span>
+            <span class="comments">6 Comments</span>
+          </div>
+          <div class="rating">★★★★★</div>
+          <div class="price">24$</div>
+          <div class="btn-group">
+            <button class="btn add-to-cart">Add to Cart</button>
+            <button class="btn">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="cart-items" class="list-group mb-3"></ul>
+        <div class="cart-total">
+          <strong>Total:</strong> <span id="cart-total-price">0</span>$
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+
+
+
+     <!-- This is Services Section -->
+     <section id="services" class="services-section">
+        <h2>Explore Our Services</h2>
+        <div class="service-cards" id="service-cards">
+          <div class="service-card">
+                  <img src="assets/4caefcc2fd5cf97ac57d9eb5a1e3b338b0b90f67.png" alt="Dine-in">
+                  <h3>Dine - in</h3>
+                  <p>Welcome to Royal Paradise Hotel, where culinary artistry meets heartfelt hospitality.</p>
+              </div>
+              <div class="service-card">
+                  <img src="assets/cac46e049bcc4e54f7ce72bc04dc984ea55e7105.png" alt="Take away">
+                  <h3>Take away</h3>
+                  <p>Welcome to Royal Paradise Hotel, where culinary artistry meets heartfelt hospitality.</p>
+              </div>
+              <div class="service-card">
+                  <img src="assets/6654f7c82be592752eaf1eb8c9532e218ef43917.png" alt="Delivery">
+                  <h3>Delivery</h3>
+                  <p>Welcome to Royal Paradise Hotel, where culinary artistry meets heartfelt hospitality.</p>
+              </div>
+              <div class="service-card">
+                  <img src="assets/11cb52a9bffb49c97910484d27ac4d02b1bb0f2d.png" alt="24/7 Service">
+                  <h3>24/7 Service</h3>
+                  <p>Welcome to Royal Paradise Hotel, where culinary artistry meets heartfelt hospitality.</p>
+              </div>
+        </div>
+      </section>
+
+       <!-- This is Book A Table Section -->
+    <section id="book-table" class="book-table-section">
+        <div class="image-container"></div>
+        <div class="form-container">
+          <h2>Book A Table Online</h2>
+          <form>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Name"
+                id="booking-user"
+                required
+              />
+              <span class="error-msg" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your Email"
+                id="booking-email"
+                required
+              />
+              <span class="error-msg" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="datetime-local"
+                class="form-control"
+                placeholder="Date & Time"
+                id="booking-dateTime"
+                required
+              />
+              <span class="error-msg" id="datetime-error"></span>
+            </div>
+            <div class="form-group">
+              <input
+                class="number-of-person"
+                type="number"
+                placeholder="Number of Persons"
+                id="booking-no-of-person"
+                itemid="booking-no-of-person"
+                required
+              />
+              <span class="error-msg" id="person-error"></span>
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                placeholder="Special Request"
+                id="booking-special-request"
+                required
+              ></textarea>
+              <span class="error-msg" id="request-error"></span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn-book" id="tableBookButton">
+                Book Now
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+       <!-- Team Members Section -->
+    <section id="team" class="members-section">
+        <h2>Our Members</h2>
+        <div class="members-container" id="members-container">
+          <div class="member-card">
+                  <img src="assets/cae6d0bb56055858c654134a29674d6e02e89263.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Manager</p>
+              </div>
+              <div class="member-card">
+                  <img src="assets/62dc02b76f188aa52659d1ee60d0bfdba1184270.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Chef</p>
+              </div>
+              <div class="member-card">
+                  <img src="assets/185795f89d12cded6d035c3ac477f67e81ded598.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Staff</p>
+              </div>
+              <div class="member-card">
+                  <img src="assets/185795f89d12cded6d035c3ac477f67e81ded598.png" alt="James Fedrick">
+                  <h3>James Fedrick</h3>
+                  <p>Chef</p>
+              </div>
+        </div>
+      </section>
+
+
+       <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <h2>Our Restaurant Gallery</h2>
+      <div class="gallery" id="gallerys">
+        <img src="assets/cf22d185590e378ab9133cb14743e78ec9746bbe.png" alt="Gallery Image 1">
+            <img src="assets/04ec110953d4a0a12a38f1729c12a6f2f2c507e9.png" alt="Gallery Image 2">
+            <img src="assets/2b353ee640d828bf0c41dd797a7515d1547c6a7b.png" alt="Gallery Image 3">
+            <img src="assets/1d4977c011fce8079d3552dae597b830a98a3ddb.png" alt="Gallery Image 4">
+            <img src="assets/7d634ee6bac39a60b9654d718d8b1351428f7aff.png" alt="Gallery Image 5">
+            <img src="assets/7eca0672918874282d91ee7ff1110776d95b7309.png" alt="Gallery Image 6">
+            <img src="assets/8a98aa4cc09557bad9e2a679732fb575109bcaed.png" alt="Gallery Image 7">
+            <img src="assets/40d8749523c8c1e64a62758fdb80145689944700.png" alt="Gallery Image 8">
+      </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093717!2d144.9559283159048!3d-37.81720997975161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f10c9e27%3A0x5045675218ce6e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1609460445680!5m2!1sen!2sus"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
+      </div>
+      <div class="form-container">
+        <h2>Contact for any Query</h2>
+        <div class="contact-info">
+          <div>
+            <span>General:</span><br />
+            <img
+              src="assets/193516e6-92a4-4103-8a50-157dca35f263.png"
+              alt="Email"
+              style="width: 20px; vertical-align: middle"
+            />
+            info@royal.com
+          </div>
+          <div>
+            <span>Technical:</span><br />
+            <img
+              src="assets/193516e6-92a4-4103-8a50-157dca35f263.png"
+              alt="Email"
+              style="width: 20px; vertical-align: middle"
+            />
+            tech@royal.com
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" id="name" required/>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email" id="email" required/>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Message" id="message" required></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn-send" id="sendFeednackButton">Send Message</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+   <!-- Reviews Section -->
+   <section id="reviews" class="testimonial-section">
+    <h2>Our Clients Say</h2>
+    <div class="testimonials" id="testimonials">
+      <!-- <div class="testimonial-card">
+        <img
+          src="assets/c2fe66ed-e3f9-4dbf-9cb2-1f8bd2cb0ddf.png"
+          alt="Jeffry Martian"
+        />
+        <h4>Jeffry Martian</h4>
+        <p>Business Owner</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Pharetra elit libero cras
+          commodo. Non egestas convallis nulla sodales.
+        </p>
+        <div class="rating">
+          <div>
+            <span>★★★★★</span>
+          </div>
+          <div>
+            <span>4.9</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <img
+          src="assets/8c7611b8-ed26-4c94-befa-7cf7483bb894.png"
+          alt="Jeffry Martian"
+        />
+        <h4>Jeffry Martian</h4>
+        <p>Business Owner</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Pharetra elit libero cras
+          commodo. Non egestas convallis nulla sodales.
+        </p>
+        <div class="rating">
+          <div>
+            <span>★★★★★</span>
+          </div>
+          <div>
+            <span>4.9</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <img
+          src="assets/ddf096ed-fb5d-4fce-835d-986241ab9c3f.png"
+          alt="Jeffry Martian"
+        />
+        <h4>Jeffry Martian</h4>
+        <p>Business Owner</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Pharetra elit libero cras
+          commodo. Non egestas convallis nulla sodales.
+        </p>
+        <div class="rating">
+          <div>
+            <span>★★★★★</span>
+          </div>
+          <div>
+            <span>4.9</span>
+          </div>
+        </div>  -->
+      </div>
+    </div>
+  </section>
+
+  <footer
+    class="footer-section"
+    style="
+      background-color: #333;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    "
+  >
+    <div
+      style="display: flex; justify-content: space-between; flex-wrap: wrap"
+    >
+      <div
+        style="flex: 1; min-width: 200px; margin-bottom: 20px"
+        id="footer-section-sub-1"
+      >
+        <img src="assets/17c9f36e3c996b00d2d0a2257c0b90374f2d4384.png" alt="Royal Paradise Hotel" style="width: 100px; margin-bottom: 20px;"> 
+        <p>We help founders by bringing creative financing solutions, the business acumen, the collaborative partnerships, and the management discipline they need to thrive in the market.</p>
+        <p>365/1 Royal Land, Matara.</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; margin-bottom: 20px">
+        <h4>Royal Paradise Hotel</h4>
+        <p>Follow us on</p>
+        <a
+          href="#"
+          style="color: #fff; text-decoration: none; margin-right: 10px"
+          >Facebook</a
+        >
+        |
+        <a href="#" style="color: #fff; text-decoration: none">Instagram</a>
+      </div>
+      <div style="flex: 1; min-width: 200px; margin-bottom: 20px">
+        <h4>Explore</h4>
+        <a
+          href="#about"
+          style="color: #fff; text-decoration: none; display: block"
+          >About us</a
+        >
+        <a href="#" style="color: #fff; text-decoration: none; display: block"
+          >Menu</a
+        >
+        <a href="#" style="color: #fff; text-decoration: none; display: block"
+          >Service</a
+        >
+        <a href="#" style="color: #fff; text-decoration: none; display: block"
+          >Book a Table</a>
+        <a href="#" style="color: #fff; text-decoration: none; display: block"
+          >Team Members</a>
+          <a href="#" style="color: #fff; text-decoration: none; display: block"
+          >Gallery</a
+        >
+        <a href="#" style="color: #fff; text-decoration: none; display: block"
+          >Contact</a
+        >
+        <a href="#" style="color: #fff; text-decoration: none; display: block"
+          >Reviews</a
+        >
+        
+      </div>
+      <div style="flex: 1; min-width: 200px" id="footer-section-sub-2">
+        <h4>Contact</h4>
+        <p>+94 775221221</p>
+         <p>info@royal.com</p>
+          <p>www.royal.com</p>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  </body>
+</html>

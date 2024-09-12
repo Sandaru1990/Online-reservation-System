@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .sidebar {
+        width: 220px;
+        background-color: #495057;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        color: white;
+      }
+
+      .sidebar h4 {
+        margin-bottom: 30px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .sidebar .nav-link {
+        color: white;
+        padding: 10px 15px;
+        display: block;
+        font-size: 15px;
+      }
+
+      .sidebar .nav-link.active {
+        background-color: #6e6a69;
+        border-radius: 5px;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #c9c3c1;
+        border-radius: 5px;
+      }
+
+      .content {
+        margin-left: 220px;
+        padding: 20px;
+      }
+
+      .header {
+        background-color: #263238;
+        padding: 10px;
+        color: white;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header .admin-info img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        margin-left: 10px;
+      }
+
+      .profile-section {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-section h2 {
+        margin-bottom: 20px;
+      }
+
+      .profile-picture {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .profile-details {
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .profile-details span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      console.log(sessionStorage.getItem("uid"));
+      sessionStorage.getItem("uid") != null
+        ? (window.location.href = "#")
+        : (window.location.href = "../../AdminEmployeeLogin.html");
+
+      function logout() {
+        sessionStorage.removeItem("uid");
+        sessionStorage.clear();
+        window.location.href = "../../AdminEmployeeLogin.html";
+        //alert("logout");
+      }
+    </script>
+    <div class="sidebar">
+      <h4>Royal Restaurant</h4>
+      <br />
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="../DashBoard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../components/BookATable.html"
+            >Book A Table List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../components/Orderlist.html">Order List</a>
+        </li>
+        <br />
+      </ul>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            >Product List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            >Staff List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            >User List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Content -->
+    <div class="content">
+      <div class="header">
+        <div>Update Profile</div>
+      </div>
+
+      <div class="profile-section">
+        <img
+          src="https://via.placeholder.com/120"
+          alt="Admin Profile Picture"
+          class="profile-picture"
+          id="profi"
+        />
+
+        <div>
+          <div class="form-group">
+            <label for="adminName">Profile:</label>
+            <input type="file" class="form-control" id="profile" />
+          </div>
+          <div class="form-group">
+            <label for="adminName">Name:</label>
+            <input type="text" class="form-control" id="adminName" />
+          </div>
+          <div class="form-group">
+            <label for="adminEmail">Email:</label>
+            <input type="email" class="form-control" id="adminEmail" />
+          </div>
+          <div class="form-group"></div>
+          <label for="adminEmail">Password:</label>
+          <input type="password" class="form-control" id="adminPassword" />
+        </div>
+          <div class="form-group">
+            <label for="adminPhone">Phone:</label>
+            <input type="text" class="form-control" id="adminPhone" />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="updateProfileButton"
+          >
+            Update Profile
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let address;
+      let roleType;
+      let pic;
+      document.addEventListener("DOMContentLoaded", () => {
+        const uid = sessionStorage.getItem("uid");
+        fetch(`http://localhost:8080/api/view-all-users/${uid}`)
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById(
+              "profi"
+            ).src = `data:image/png;base64,${data.userProfile}`;
+            document.getElementById("adminName").value = data.userName;
+            document.getElementById("adminEmail").value = data.email;
+            document.getElementById("adminPhone").value = data.contactNo;
+            address = data.userAddress;
+            roleType = data.roleType;
+          });
+      });
+
+      document
+      .getElementById("updateProfileButton")
+      .addEventListener("click", () => {
+        const uid = sessionStorage.getItem("uid");
+    
+        const formData = new FormData();
+        formData.append("userName", document.getElementById("adminName").value);
+        formData.append("userProfile", document.getElementById("profile").files[0]);
+        formData.append("contactNo", document.getElementById("adminPhone").value);
+        formData.append("email", document.getElementById("adminEmail").value);
+        formData.append("password", document.getElementById('adminPassword').value);
+        formData.append("userAddress", address);
+        formData.append("roleType", roleType);
+    
+        fetch(`http://localhost:8080/api/update-user/${uid}`, {
+          method: "PUT",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data) {
+              Swal.fire({
+                title: 'Success!',
+                text: 'Your profile has been updated.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+              }).then(() => {
+                location.reload();
+              });
+            } else {
+              Swal.fire({
+                title: 'Error!',
+                text: 'There was an issue updating your profile.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+              });
+            }
+          })
+          .catch(() => {
+            Swal.fire({
+              title: 'Error!',
+              text: 'An unexpected error occurred.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+            });
+          });
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script defer src="#"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1e1f20;
+        color: #050505;
+      }
+  
+      .sidebar {
+        width: 210px;
+        background-color: #314961;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        color: white;
+      }
+
+      .sidebar-header h4 {
+        margin-bottom: 20px;
+      }
+
+      .sidebar .nav-link {
+        color: white;
+        padding: 10px 15px;
+        display: block;
+      }
+
+      .sidebar .nav-link.active {
+        background-color: #495057;
+        border-radius: 5px;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #444;
+        border-radius: 5px;
+      }
+
+      .content {
+        margin-top: 5px;
+        margin-left: 210px;
+        padding: 8px;
+      }
+
+      .content header {
+        width: 50px;
+      }
+
+      .sidebar ul.nav.flex-column li.nav-item {
+        margin-bottom: 2px;
+        font-size: 15px;
+      }
+
+      .header {
+        background-color: rgb(33, 133, 133);
+        color: white;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        border-radius: 8px;
+        font-size: 30px;
+       
+      }
+
+    
+      .pagination {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .pagination-controls {
+        display: flex;
+        gap: 5px;
+      }
+
+      .modal-dialog {
+        max-width: 50%; /* Adjust the percentage as needed */
+      }
+
+      .page-number {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .footer {
+        background-color: #314961;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+       
+      }
+
+      .card-container {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+
+      .card {
+        background-color: #37474f;
+        color: white;
+        width: 180px;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .card.yellow {
+        background-color: #fbc02d;
+        color: #fff;
+      }
+
+      .card.blue {
+        background-color: #039be5;
+        color: #fff;
+      }
+
+
+      .navbar-right {
+        display: flex;
+        align-items: center;
+      }
+      .navbar-right img {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-left: 00px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      console.log(sessionStorage.getItem("uid"));
+      sessionStorage.getItem("uid") != null
+        ? (window.location.href = "#")
+        : (window.location.href = "../AdminEmployeeLogin.html");
+
+      function logout() {
+        sessionStorage.removeItem("uid");
+        sessionStorage.clear();
+        window.location.href = "../AdminEmployeeLogin.html";
+        //alert("logout");
+      }
+    </script>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h4>Royal Restaurant</h4>
+      <br />
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../admin/components/BookATable.html"
+            >Book A Table List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../admin/components/Orderlist.html"
+            >Order List</a
+          >
+        </li>
+        <br />
+      </ul>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="../admin/components/MenuDetails.html"
+            >Product List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../admin/components/Staffdetails.html"
+            >Staff List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../admin/components/Userdetails.html"
+            >User List</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../admin/components/feedback.html">Feedback</a>
+        </li>
+      </ul>
+    </div>
+
+  <!-- Sidebar -->
+    <div class="navbar">
+      <h2></h2>
+      <br />
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <div class="navbar-right">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                id="profi"
+                  src="https://via.placeholder.com/40"
+                  alt="Profile Picture"
+                />
+                Admin
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="../admin/components/UpdateProfile.html">Update Profile</a></li>
+                <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Content -->
+    <div class="content">
+      <div class="header">
+        <div>Welcome to Royal Restaurant</div>
+      </div>
+
+      <div class="card-container">
+        <div class="card">
+          <div class="card-title">All Customers</div>
+          <div class="card-count" id="serviceCount"></div>
+        </div>
+        <div class="card yellow">
+          <div class="card-title">Table Booking Pending Request</div>
+          <div class="card-count" id="pendingBCount"></div>
+        </div>
+        <div class="card blue">
+          <div class="card-title">Table Booking Verified Appointment</div>
+          <div class="card-count" id="verifyBCount"></div>
+        </div>
+        <div class="card yellow">
+          <div class="card-title">Order Verified Appointment</div>
+          <div class="card-count" id="verifyOCount"></div>
+        </div>
+        <div class="card dark gray">
+          <div class="card-title">Order Pending Appointment</div>
+          <div class="card-count" id="pendingOCount"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Copyright © 2024. All rights reserved. Royal Resturant
+    </div>
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+      let count1 = 0;
+      let count2 = 0;
+      let count3 = 0;
+      let count4 = 0;
+      let count5 = 0;
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("http://localhost:8080/api/view-all-users-by-role?roleType=USER")
+          .then((response) => response.json())
+          .then((data) => {
+            data.map(() => {
+              count1++;
+            });
+            document.getElementById("serviceCount").innerText = count1;
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+
+        fetch("http://localhost:8080/api/view-booking-by-status?status=PENDING")
+          .then((response) => response.json())
+          .then((data) => {
+            data.map(() => {
+              count2++;
+            });
+            document.getElementById("pendingBCount").innerText = count2;
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+
+        fetch("http://localhost:8080/api/view-booking-by-status?status=VERIFY")
+          .then((response) => response.json())
+          .then((data) => {
+            data.map(() => {
+              count3++;
+            });
+            document.getElementById("verifyBCount").innerText = count3;
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+
+        fetch("http://localhost:8080/api/view-all-food-orders-by-status?orderStatus=PENDING")
+          .then((response) => response.json())
+          .then((data) => {
+            data.map(() => {
+              count4++;
+            });
+            document.getElementById("pendingOCount").innerText = count4;
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+
+        fetch("http://localhost:8080/api/view-all-food-orders-by-status?orderStatus=VERIFY")
+          .then((response) => response.json())
+          .then((data) => {
+            data.map(() => {
+              count5++;
+            });
+            document.getElementById("verifyOCount").innerText = count5;
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+
+          const uid = sessionStorage.getItem("uid");
+          fetch(`http://localhost:8080/api/view-all-users/${uid}`).then((response)=>response.json()).then((data)=>{
+            document.getElementById('profi').src = `data:image/png;base64,${data.userProfile}`;
+          })
+      });
+    </script>
+  </body>
+</html>
